@@ -1,6 +1,9 @@
-gnore everything in this directory
+#ignore everything in this directory
 *
 # Except this file
 !.gitignore
 !portfolio/Dockerfile
+!_portfolio.sh
+!shinyapps/Dockerfile
+!_shinyapps.sh
 
