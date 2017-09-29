@@ -2,9 +2,8 @@ FROM rocker/shiny
 MAINTAINER "Brooks Ambrose" brooksambrose@berkeley.edu
 
 RUN apt-get update \
-&& apt-get upgrade -y openssl \
 && apt-get install -y --no-install-recommends \
-git-core curl \
+openssl git-core curl \
 && git config --global user.name "Oski Bear" \
 && git config --global user.email oski@rdada.berkeley.edu
 
@@ -17,7 +16,6 @@ RUN cd /srv/ && rm -rf shiny-server \
 RUN curl https://getcaddy.com | bash \
 && echo "mercury.dlab.berkeley.edu" >> /etc/Caddyfile \
 && echo "tls brooksambrose@berkeley.edu" >> /etc/Caddyfile \
-#&& echo "tls self_signed" >> /etc/Caddyfile \
 && echo "proxy / http://0.0.0.0:3838" >> /etc/Caddyfile \
 && echo '#!/bin/bash' >> /usr/bin/runcaddy.sh \
 && echo "cd /srv/shiny-server/ && caddy -agree -log ~ -conf /etc/Caddyfile" >> /usr/bin/runcaddy.sh \
