@@ -1,4 +1,4 @@
-FROM rocker/verse:3.4.0
+FROM rocker/verse:3.4.2
 MAINTAINER "Brooks Ambrose" brooksambrose@berkeley.edu
 
 RUN apt-get update \
